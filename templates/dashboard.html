@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Patient Dashboard</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        .header { font-size: 24px; margin-bottom: 10px; }
+        .subheader { margin-bottom: 20px; }
+        table { width: 100%; border-collapse: collapse; }
+        th, td { padding: 10px; border-bottom: 1px solid #ddd; text-align: left; }
+        th { background-color: #f2f2f2; }
+        .btn { padding: 10px 15px; background: #007BFF; color: white; text-decoration: none; border-radius: 5px; margin-bottom: 15px; }
+        .logout { position: absolute; top: 20px; right: 20px; }
+    </style>
+</head>
+<body>
+
+<div class="logout"><a class="btn" href="/logout">Logout</a></div>
+<div class="header">Welcome, Nurse Emily!</div>
+<div class="subheader">You have {{ total }} patients</div>
+
+<a class="btn" href="#">Admit New Patient</a>
+
+<table>
+    <thead>
+        <tr>
+            <th>First name</th>
+            <th>Last name</th>
+            <th>Patient ID</th>
+            <th>Admission & Treatment</th>
+            <th>Admission Date</th>
+            <th>Care Giver</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for p in patients %}
+        <tr>
+            <td>{{ p.first_name }}</td>
+            <td>{{ p.last_name }}</td>
+            <td>{{ p.patient_id }}</td>
+            <td>{{ p.treatment }}</td>
+            <td>{{ p.admission_date }}</td>
+            <td>Patient details</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+</body>
+</html>
