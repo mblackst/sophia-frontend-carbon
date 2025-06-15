@@ -37,6 +37,43 @@ def dashboard():
     patients = get_patients()
     return render_template('dashboard.html', patients=patients, total=len(patients))
 
+@app.route('/patients')
+def patients():
+    if 'user' not in session:
+        return redirect(url_for('login'))
+    patients = get_patients()
+    return render_template('patients.html', patients=patients, total=len(patients))
+
+@app.route('/reports')
+def reports():
+    if 'user' not in session:
+        return redirect(url_for('login'))
+    return render_template('reports.html')
+
+@app.route('/analytics')
+def analytics():
+    if 'user' not in session:
+        return redirect(url_for('login'))
+    return render_template('analytics.html')
+
+@app.route('/settings')
+def settings():
+    if 'user' not in session:
+        return redirect(url_for('login'))
+    return render_template('settings.html')
+
+@app.route('/notifications')
+def notifications():
+    if 'user' not in session:
+        return redirect(url_for('login'))
+    return render_template('notifications.html')
+
+@app.route('/orchestrate/<patient_id>')
+def orchestrate(patient_id):
+    if 'user' not in session:
+        return redirect(url_for('login'))
+    return render_template('orchestrate.html', patient_id=patient_id)
+
 @app.route('/logout')
 def logout():
     session.pop('user', None)

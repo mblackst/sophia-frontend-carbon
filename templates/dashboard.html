@@ -3,48 +3,295 @@
 <head>
     <title>Patient Dashboard</title>
     <style>
-        body { font-family: Arial, sans-serif; padding: 20px; }
-        .header { font-size: 24px; margin-bottom: 10px; }
-        .subheader { margin-bottom: 20px; }
-        table { width: 100%; border-collapse: collapse; }
-        th, td { padding: 10px; border-bottom: 1px solid #ddd; text-align: left; }
-        th { background-color: #f2f2f2; }
-        .btn { padding: 10px 15px; background: #007BFF; color: white; text-decoration: none; border-radius: 5px; margin-bottom: 15px; }
-        .logout { position: absolute; top: 20px; right: 20px; }
+        body { 
+            font-family: Arial, sans-serif; 
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+        }
+        
+        /* Navigation Bar Styles */
+        .navbar {
+            background-color: #2c3e50;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: white;
+        }
+        
+        .navbar-brand {
+            font-size: 20px;
+            font-weight: bold;
+        }
+        
+        .navbar-nav {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .nav-item {
+            display: flex;
+            align-items: center;
+            padding: 8px 12px;
+            border-radius: 5px;
+            text-decoration: none;
+            color: white;
+            transition: background-color 0.3s;
+        }
+        
+        .nav-item:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+        
+        .nav-item.active {
+            background-color: #3498db;
+        }
+        
+        .nav-icon {
+            width: 20px;
+            height: 20px;
+            margin-right: 8px;
+            filter: brightness(0) invert(1); /* Makes icons white */
+        }
+        
+        /* Main Content Styles */
+        .main-content {
+            padding: 20px;
+        }
+        
+        .header { 
+            font-size: 24px; 
+            margin-bottom: 10px; 
+            color: #2c3e50;
+        }
+        
+        .subheader { 
+            margin-bottom: 20px; 
+            color: #7f8c8d;
+        }
+        
+        .search-section {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .search-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .search-box {
+            padding: 8px 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            width: 300px;
+        }
+        
+        .toolbar-icons {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .toolbar-icon {
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+            opacity: 0.7;
+            transition: opacity 0.3s;
+        }
+        
+        .toolbar-icon:hover {
+            opacity: 1;
+        }
+        
+        table { 
+            width: 100%; 
+            border-collapse: collapse; 
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        th, td { 
+            padding: 12px; 
+            border-bottom: 1px solid #eee; 
+            text-align: left; 
+        }
+        
+        th { 
+            background-color: #f8f9fa; 
+            font-weight: 600;
+            color: #2c3e50;
+        }
+        
+        tr:hover {
+            background-color: #f8f9fa;
+        }
+        
+        .btn { 
+            padding: 10px 15px; 
+            background: #3498db; 
+            color: white; 
+            text-decoration: none; 
+            border-radius: 5px; 
+            margin-bottom: 15px; 
+            display: inline-block;
+            transition: background-color 0.3s;
+        }
+        
+        .btn:hover {
+            background-color: #2980b9;
+        }
+        
+        .patient-details {
+            color: #3498db;
+            cursor: pointer;
+            text-decoration: underline;
+        }
+        
+        .pagination {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 20px;
+            padding: 15px 0;
+        }
+        
+        .pagination-info {
+            color: #7f8c8d;
+        }
+        
+        .pagination-controls {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+        
+        .page-select {
+            padding: 5px 10px;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+        }
+        
+        .page-btn {
+            padding: 5px 10px;
+            border: 1px solid #ddd;
+            background: white;
+            cursor: pointer;
+            border-radius: 3px;
+        }
+        
+        .page-btn:hover {
+            background-color: #f8f9fa;
+        }
     </style>
 </head>
 <body>
 
-<div class="logout"><a class="btn" href="/logout">Logout</a></div>
-<div class="header">Welcome, Nurse Emily!</div>
-<div class="subheader">You have {{ total }} patients</div>
+<!-- Navigation Bar -->
+<nav class="navbar">
+    <div class="navbar-brand">Sophia Tech</div>
+    <div class="navbar-nav">
+        <a href="/dashboard" class="nav-item active">
+            <img src="{{ url_for('static', filename='download.png') }}" alt="Dashboard" class="nav-icon">
+            Dashboard
+        </a>
+        <a href="/patients" class="nav-item">
+            <img src="{{ url_for('static', filename='filter.png') }}" alt="Patients" class="nav-icon">
+            Patients
+        </a>
+        <a href="/reports" class="nav-item">
+            <img src="{{ url_for('static', filename='reload.png') }}" alt="Reports" class="nav-icon">
+            Reports
+        </a>
+        <a href="/analytics" class="nav-item">
+            <img src="{{ url_for('static', filename='settings.png') }}" alt="Analytics" class="nav-icon">
+            Analytics
+        </a>
+        <a href="/settings" class="nav-item">
+            <img src="{{ url_for('static', filename='settings.png') }}" alt="Settings" class="nav-icon">
+            Settings
+        </a>
+        <a href="/notifications" class="nav-item">
+            <img src="{{ url_for('static', filename='reload.png') }}" alt="Notifications" class="nav-icon">
+            Notifications
+        </a>
+        <a href="/logout" class="nav-item">
+            <img src="{{ url_for('static', filename='download.png') }}" alt="Logout" class="nav-icon">
+            Logout
+        </a>
+    </div>
+</nav>
 
-<a class="btn" href="#">Admit New Patient</a>
+<!-- Main Content -->
+<div class="main-content">
+    <div class="header">Welcome, Nurse Emily!</div>
+    <div class="subheader">You have {{ total }} patients</div>
 
-<table>
-    <thead>
-        <tr>
-            <th>First name</th>
-            <th>Last name</th>
-            <th>Patient ID</th>
-            <th>Admission & Treatment</th>
-            <th>Admission Date</th>
-            <th>Care Giver</th>
-        </tr>
-    </thead>
-    <tbody>
-        {% for p in patients %}
-        <tr>
-            <td>{{ p.first_name }}</td>
-            <td>{{ p.last_name }}</td>
-            <td>{{ p.patient_id }}</td>
-            <td>{{ p.treatment }}</td>
-            <td>{{ p.admission_date }}</td>
-            <td>Patient details</td>
-        </tr>
-        {% endfor %}
-    </tbody>
-</table>
+    <div class="search-section">
+        <a class="btn" href="#">Admit New Patient</a>
+        <div class="search-container">
+            <input type="text" class="search-box" placeholder="Search Patient">
+            <div class="toolbar-icons">
+                <img src="{{ url_for('static', filename='filter.png') }}" alt="Filter" class="toolbar-icon">
+                <img src="{{ url_for('static', filename='download.png') }}" alt="Download" class="toolbar-icon">
+                <img src="{{ url_for('static', filename='reload.png') }}" alt="Refresh" class="toolbar-icon">
+                <img src="{{ url_for('static', filename='settings.png') }}" alt="Settings" class="toolbar-icon">
+            </div>
+        </div>
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>First name</th>
+                <th>Last name</th>
+                <th>Patient ID</th>
+                <th>Admission & Treatment</th>
+                <th>Admission Date</th>
+                <th>Care Giver</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for p in patients %}
+            <tr onclick="window.location.href='/orchestrate/{{ p.patient_id }}'" style="cursor: pointer;">
+                <td>{{ p.first_name }}</td>
+                <td>{{ p.last_name }}</td>
+                <td>{{ p.patient_id }}</td>
+                <td>{{ p.treatment }}</td>
+                <td>{{ p.admission_date }}</td>
+                <td><span class="patient-details">Patient details</span></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <div class="pagination">
+        <div class="pagination-info">
+            <select class="page-select">
+                <option>25</option>
+                <option>50</option>
+                <option>100</option>
+            </select>
+            1 - 25 of 50 items
+        </div>
+        <div class="pagination-controls">
+            <select class="page-select">
+                <option>1</option>
+                <option>2</option>
+            </select>
+            of 2 pages
+            <button class="page-btn">&lt;</button>
+            <button class="page-btn">&gt;</button>
+        </div>
+    </div>
+</div>
 
 </body>
 </html>
