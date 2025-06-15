@@ -43,4 +43,6 @@ def logout():
     return redirect(url_for('login'))
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    # *** IMPORTANT CHANGE HERE ***
+    # Bind to 0.0.0.0 to make the Flask app accessible from outside the container's localhost
+    app.run(host='0.0.0.0', port=5000, debug=True) # Ensure port matches EXPOSE in Dockerfile
