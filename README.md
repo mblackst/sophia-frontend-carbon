@@ -2,7 +2,7 @@
 
 ## Features
 
-- Login page based on provided design
+- Login page based on provided design   
 - Background extracted from screenshot
 - Redirect to patient list after login
 - Fully containerized (Dockerfile included)
