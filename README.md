@@ -6,7 +6,7 @@
 - Background extracted from screenshot
 - Redirect to patient list after login     
 - Fully containerized (Dockerfile included)
-- Ready for OpenShift deployment
+- Ready for OpenShift deployment    
 
 ## Default Credentials
 
