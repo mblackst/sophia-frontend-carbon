@@ -4,7 +4,7 @@
 
 - Login page based on provided design   
 - Background extracted from screenshot
-- Redirect to patient list after login
+- Redirect to patient list after login     
 - Fully containerized (Dockerfile included)
 - Ready for OpenShift deployment
 
