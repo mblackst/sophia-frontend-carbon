@@ -7,9 +7,9 @@ app.secret_key = 'your_secret_key'
 def get_patients():
     time.sleep(0.5)
     return [
-        {"first_name": "Hiroshi", "last_name": "Kimura", "patient_id": "edf8so8872", "treatment": "Surgery from a minor car accident.", "admission_date": "-----"},
-        {"first_name": "Isabella", "last_name": "Fernandez", "patient_id": "sdf8320j43", "treatment": "Treatment for a respiratory infection and showing significant improvement.", "admission_date": "-----"},
-        {"first_name": "Rahul", "last_name": "Patel", "patient_id": "ssf922m24", "treatment": "Fainting episode. No underlying serious medical condition presumed.", "admission_date": "-----"},
+        {"first_name": "Raj", "last_name": "Icu", "patient_id": "edf8so8872", "treatment": "Surgery from a minor car accident.", "admission_date": "-----"},
+        {"first_name": "Camila", "last_name": "Lopez", "patient_id": "sdf8320j43", "treatment": "Treatment for a respiratory infection and showing significant improvement.", "admission_date": "-----"},
+        {"first_name": "Theodore", "last_name": "Mychart", "patient_id": "ssf922m24", "treatment": "Fainting episode. No underlying serious medical condition presumed.", "admission_date": "-----"},
         {"first_name": "Liam", "last_name": "O'Reilly", "patient_id": "ale434m11", "treatment": "Broken arm and necessary follow-up care, physical therapy.", "admission_date": "-----"},
         {"first_name": "Sofia", "last_name": "Santos", "patient_id": "lkjeriwo39", "treatment": "----", "admission_date": "-----"},
         {"first_name": "Natalia", "last_name": "Petrovich", "patient_id": "msdfjho903", "treatment": "Evaluation and treatment for presumed mild case of pneumonia.", "admission_date": "-----"},
@@ -78,6 +78,11 @@ def orchestrate(patient_id):
 def logout():
     session.pop('user', None)
     return redirect(url_for('login'))
+
+@app.route('/assistant/<patient_name>')
+def assistant(patient_name):
+    return render_template('assistant.html', patient_name=patient_name)
+
 
 if __name__ == '__main__':
     # *** IMPORTANT CHANGE HERE ***
