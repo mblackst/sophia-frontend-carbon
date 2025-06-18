@@ -28,7 +28,7 @@
 <body>
 
 <div class="login-box">
-    <h2>Log in to Sophia!!!!</h2>
+    <h2>Log in to Sophia</h2>
     <form method="POST" class="bx--form" style="max-width: 260px;">
         <div class="bx--form-item">
             <label for="username" class="bx--label">Username</label>
@@ -38,6 +38,7 @@
             <label for="password" class="bx--label">Password</label>
             <input id="password" type="password" name="password" class="bx--text-input" placeholder="Password" required>
         </div>
+        <br>
         <button class="bx--btn bx--btn--primary" type="submit">Login</button>
     </form>
     {% if error %}<p class="error">{{ error }}</p>{% endif %}
