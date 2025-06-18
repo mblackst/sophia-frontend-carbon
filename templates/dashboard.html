@@ -54,6 +54,11 @@
             margin-right: 8px;
             filter: brightness(0) invert(1);
         }
+
+        .logout-icon {
+            width: 24px;
+            height: 24px;
+        }
         
         .main-content {
             padding: 20px;
@@ -224,7 +229,7 @@
         </a>
         -->
         <a href="/logout" class="nav-item">
-            <img src="{{ url_for('static', filename='ec.png') }}?v=1" alt="Logout">
+            <img src="{{ url_for('static', filename='ec.png') }}?v=1" alt="Logout" class="logout-icon">
         </a>
     </div>
 </nav>
