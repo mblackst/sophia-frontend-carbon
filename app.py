@@ -83,6 +83,10 @@ def logout():
 def assistant(patient_name):
     return render_template('assistant.html', patient_name=patient_name)
 
+@app.route("/assessment")
+def assessment():
+    return render_template("assessment.html")
+
 
 if __name__ == '__main__':
     # *** IMPORTANT CHANGE HERE ***
