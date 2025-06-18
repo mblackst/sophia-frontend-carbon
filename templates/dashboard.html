@@ -102,12 +102,13 @@
         }
         
         .toolbar-icon {
-            width: 20px;
-            height: 20px;
+            width: 42px;
+            height: 42px;
             cursor: pointer;
             opacity: 0.7;
             transition: opacity 0.3s;
         }
+
         
         .toolbar-icon:hover {
             opacity: 1;
@@ -229,7 +230,8 @@
         </a>
         -->
         <a href="/logout" class="nav-item">
-            <img src="{{ url_for('static', filename='ec.png') }}?v=1" alt="Logout" class="logout-icon">
+            <img src="{{ url_for('static', filename='ec.png') }}?v=1" alt="Logout" class="llogout-icon">
+            Log out
         </a>
     </div>
 </nav>
