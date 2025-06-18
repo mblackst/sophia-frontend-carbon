@@ -2,9 +2,10 @@
 <html>
 <head>
     <title>Patient Dashboard</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/carbon-components/css/carbon-components.min.css">
     <style>
-        body { 
-            font-family: Arial, sans-serif; 
+        body {
+            font-family: 'IBM Plex Sans', Arial, sans-serif;
             margin: 0;
             padding: 0;
             background-color: #f5f5f5;
@@ -139,21 +140,6 @@
             background-color: #f8f9fa;
         }
         
-        .btn { 
-            padding: 10px 15px; 
-            background: #3498db; 
-            color: white; 
-            text-decoration: none; 
-            border-radius: 5px; 
-            margin-bottom: 15px; 
-            display: inline-block;
-            transition: background-color 0.3s;
-        }
-        
-        .btn:hover {
-            background-color: #2980b9;
-        }
-        
         .patient-details {
             color: #3498db;
             cursor: pointer;
@@ -178,23 +164,6 @@
             align-items: center;
         }
         
-        .page-select {
-            padding: 5px 10px;
-            border: 1px solid #ddd;
-            border-radius: 3px;
-        }
-        
-        .page-btn {
-            padding: 5px 10px;
-            border: 1px solid #ddd;
-            background: white;
-            cursor: pointer;
-            border-radius: 3px;
-        }
-        
-        .page-btn:hover {
-            background-color: #f8f9fa;
-        }
     </style>
 </head>
 <body>
@@ -242,9 +211,9 @@
     <div class="subheader">You have {{ total }} patients</div>
 
     <div class="search-section">
-        <a class="btn" href="#">Admit New Patient</a>
+        <a class="bx--btn bx--btn--primary" href="#">Admit New Patient</a>
         <div class="search-container">
-            <input type="text" class="search-box" placeholder="Search Patient">
+            <input type="text" class="bx--text-input" placeholder="Search Patient">
             <div class="toolbar-icons">
                 <img src="{{ url_for('static', filename='filter.png') }}" alt="Filter" class="toolbar-icon">
                 <img src="{{ url_for('static', filename='download.png') }}" alt="Download" class="toolbar-icon">
@@ -281,7 +250,7 @@
 
     <div class="pagination">
         <div class="pagination-info">
-            <select class="page-select">
+            <select class="bx--select" style="width: auto;">
                 <option>25</option>
                 <option>50</option>
                 <option>100</option>
@@ -289,13 +258,13 @@
             1 - 25 of 50 items
         </div>
         <div class="pagination-controls">
-            <select class="page-select">
+            <select class="bx--select" style="width: auto;">
                 <option>1</option>
                 <option>2</option>
             </select>
             of 2 pages
-            <button class="page-btn">&lt;</button>
-            <button class="page-btn">&gt;</button>
+            <button class="bx--btn bx--btn--secondary" type="button">&lt;</button>
+            <button class="bx--btn bx--btn--secondary" type="button">&gt;</button>
         </div>
     </div>
 </div>

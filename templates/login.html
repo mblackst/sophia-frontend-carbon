@@ -2,11 +2,12 @@
 <html>
 <head>
     <title>Login</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/carbon-components/css/carbon-components.min.css">
     <style>
         body {
             margin: 0;
             padding: 0;
-            font-family: Arial, sans-serif;
+            font-family: 'IBM Plex Sans', Arial, sans-serif;
             background: url("/static/background.png") no-repeat center center fixed;
             background-size: cover;
         }
@@ -17,26 +18,10 @@
             transform: translate(-50%, -50%);
             background: rgba(255, 255, 255, 0.9);
             padding: 40px;
-            border-radius: 10px;
+            border-radius: 8px;
             width: 300px;
         }
         h2 { margin-bottom: 20px; }
-        input[type="text"], input[type="password"] {
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
-        button {
-            width: 107%;
-            padding: 10px;
-            background: #007BFF;
-            border: none;
-            color: white;
-            border-radius: 5px;
-            font-weight: bold;
-        }
         .error { color: red; }
     </style>
 </head>
@@ -44,10 +29,16 @@
 
 <div class="login-box">
     <h2>Log in to Sophia!!!!</h2>
-    <form method="POST">
-        <input type="text" name="username" placeholder="Username" required><br>
-        <input type="password" name="password" placeholder="Password" required><br>
-        <button type="submit">Login</button>
+    <form method="POST" class="bx--form" style="max-width: 260px;">
+        <div class="bx--form-item">
+            <label for="username" class="bx--label">Username</label>
+            <input id="username" type="text" name="username" class="bx--text-input" placeholder="Username" required>
+        </div>
+        <div class="bx--form-item">
+            <label for="password" class="bx--label">Password</label>
+            <input id="password" type="password" name="password" class="bx--text-input" placeholder="Password" required>
+        </div>
+        <button class="bx--btn bx--btn--primary" type="submit">Login</button>
     </form>
     {% if error %}<p class="error">{{ error }}</p>{% endif %}
 </div>
