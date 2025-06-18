@@ -2,9 +2,10 @@
 <html>
 <head>
     <title>Orchestrate Page</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/carbon-components/css/carbon-components.min.css">
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'IBM Plex Sans', Arial, sans-serif;
             margin: 0;
             padding: 0;
             background-color: #f5f5f5;
@@ -37,16 +38,7 @@
         
         .back-btn {
             padding: 12px 24px;
-            background: #3498db;
-            color: white;
             text-decoration: none;
-            border-radius: 5px;
-            transition: background-color 0.3s;
-            display: inline-block;
-        }
-        
-        .back-btn:hover {
-            background-color: #2980b9;
         }
         
         .loading-spinner {
@@ -71,7 +63,7 @@
     <div class="orchestrate-text">Opening Orchestrate Page</div>
     <div class="patient-info">Patient ID: {{ patient_id }}</div>
     <div class="loading-spinner"></div>
-    <a href="/dashboard" class="back-btn">Back to Dashboard</a>
+    <a href="/dashboard" class="bx--btn bx--btn--secondary back-btn">Back to Dashboard</a>
 </div>
 
 </body>
