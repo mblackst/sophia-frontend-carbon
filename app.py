@@ -7,16 +7,17 @@ app.secret_key = 'your_secret_key'
 def get_patients():
     time.sleep(0.5)
     return [
-        {"first_name": "Raj", "last_name": "Icu", "patient_id": "edf8so8872", "treatment": "Surgery from a minor car accident.", "admission_date": "--AWAITING_AISHWARYA---"},
-        {"first_name": "Camila", "last_name": "Lopez", "patient_id": "sdf8320j43", "treatment": "Treatment for a respiratory infection and showing significant improvement.", "admission_date": "--AWAITING_AISHWARYA---"},
-        {"first_name": "Theodore", "last_name": "Mychart", "patient_id": "ssf922m24", "treatment": "Fainting episode. No underlying serious medical condition presumed.", "admission_date": "--AWAITING_AISHWARYA---"},
-        {"first_name": "Liam", "last_name": "O'Reilly", "patient_id": "ale434m11", "treatment": "Broken arm and necessary follow-up care, physical therapy.", "admission_date": "05.23.2025"},
-        {"first_name": "Sofia", "last_name": "Santos", "patient_id": "lkjeriwo39", "treatment": "Stomach virus, administered intravenous fluids, prolonged recovery from dehydration and weakness", "admission_date": "05.07.2025"},
-        {"first_name": "Natalia", "last_name": "Petrovich", "patient_id": "msdfjho903", "treatment": "Evaluation and treatment for presumed mild case of pneumonia, monitoring for worsening.", "admission_date": "05.01.2025"},
-        {"first_name": "Diego", "last_name": "González", "patient_id": "juo9332b21", "treatment": "Dehydration and intravenous fluids, high difficulty maintaining weight and nutrition.", "admission_date": "04.24.2025"},
-        {"first_name": "Doe", "last_name": "John", "patient_id": "lkj0244824", "treatment": "Hypotensive and tachycardic upon arrival, monitoring for hypovolemic shock or cardiogenic shock.", "admission_date": "03.29.2025"},
-        {"first_name": "Parthi", "last_name": "Haq", "patient_id": "pocs7fhgik1", "treatment": "Broken hip from large fall, underwent surgery and continued monitoring for pain and complications.", "admission_date": "03.16.2025"},
-    ]
+        {"first_name": "Oliver", "last_name": "Ambulatory", "patient_id": "eZ5-7rYdW...", "treatment": "GERD, regular medication monitoring.", "admission_date": "06.19.2025"},
+        {"first_name": "Theodore", "last_name": "Mychart", "patient_id": "e63wRTbPf...", "treatment": "Fainting episode, fatigue, in need of mobility support therapy.", "admission_date": "06.19.2025"},
+        {"first_name": "Derrick", "last_name": "Lin", "patient_id": "eq081-VQEgP...", "treatment": "COPD, artery disease risk, oxygen therapy.", "admission_date": "06.18.2025"},
+        {"first_name": "Camila", "last_name": "Lopez", "patient_id": "erXuFYUfu...", "treatment": "Diabetic, stomach pain, administer pain management.", "admission_date": "06.13.2025"},
+        {"first_name": "Liam", "last_name": "O'Reilly", "patient_id": "ale434m11...", "treatment": "Broken arm and necessary follow-up care, physical therapy.", "admission_date": "05.23.2025"},
+        {"first_name": "Sofia", "last_name": "Santos", "patient_id": "lkjeriwo39...", "treatment": "Stomach virus, administered intravenous fluids, prolonged recovery from dehydration and weakness", "admission_date": "05.07.2025"},
+        {"first_name": "Natalia", "last_name": "Petrovich", "patient_id": "msdfjho903...", "treatment": "Evaluation and treatment for presumed mild case of pneumonia, monitoring for worsening.", "admission_date": "05.01.2025"},
+        {"first_name": "Diego", "last_name": "González", "patient_id": "juo9332b21...", "treatment": "Dehydration and intravenous fluids, high difficulty maintaining weight and nutrition.", "admission_date": "04.24.2025"},
+        {"first_name": "Doe", "last_name": "John", "patient_id": "lkj0244824...", "treatment": "Hypotensive and tachycardic upon arrival, monitoring for hypovolemic shock or cardiogenic shock.", "admission_date": "03.29.2025"},
+        {"first_name": "Parthi", "last_name": "Haq", "patient_id": "pocs7fhgik1...", "treatment": "Broken hip from large fall, underwent surgery and continued monitoring for pain and complications.", "admission_date": "03.16.2025"},
+    ] 
 
 @app.route('/', methods=['GET', 'POST'])
 def login():
